@@ -1,5 +1,4 @@
-import rodrigoDesafioPOO.Curso;
-import rodrigoDesafioPOO.Mentoria;
+import rodrigoDesafioPOO.*;
 
 import java.time.LocalDate;
 
@@ -20,15 +19,45 @@ public class Main {
         curso2.setDescricao("descricao curso javascript");
         curso2.setCargaHoraria(8);
 
+        Conteudo conteudo = new Curso();
+
         Mentoria mentoria = new Mentoria();
 
         mentoria.setTitulo("mentoria de java");
         mentoria.setDescricao(" descricao de mentoria de java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);
+//        System.out.println(curso1);
+//        System.out.println(curso2);
+//        System.out.println(mentoria);
+
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Java");
+        bootcamp.setDescricao(" Bootcamp de Java");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev rodrigo = new Dev();
+        rodrigo.setNome("Rodrigo");
+        rodrigo.inscreverBootcamp(bootcamp);
+        System.out.println(" Conteudos inscritos Rodrigo: " + rodrigo.getConteudosInscritos());
+        rodrigo.progredir();
+        System.out.println(" Conteudos inscritos Rodrigo: " + rodrigo.getConteudosInscritos());
+        System.out.println(" Conteudos concluidos Rodrigo: " + rodrigo.getConteudosConcluidos());
+        System.out.println("XP: " + rodrigo.calcularXpTotal());
+
+        System.out.println("--------------");
+
+        Dev joao = new Dev();
+        joao.setNome("Joao");
+        joao.inscreverBootcamp(bootcamp);
+        System.out.println(" Conteudos inscritos Joao: " + joao.getConteudosInscritos());
+        joao.progredir();
+        System.out.println(" Conteudos inscritos Joao: " + joao.getConteudosInscritos());
+        System.out.println(" Conteudos concluidos Joao: " + joao.getConteudosConcluidos());
+        System.out.println("XP: " + joao.calcularXpTotal());
 
 
     }
